@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,7 +10,9 @@
     <!-- Google Fonts: Inter + Noto Sans JP -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;700&display=swap"
+        rel="stylesheet">
 
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
@@ -37,7 +40,11 @@
             --glow-accent: 0 0 60px rgba(244, 114, 182, 0.1);
         }
 
-        * { box-sizing: border-box; margin: 0; padding: 0; }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
         html {
             scroll-behavior: smooth;
@@ -66,12 +73,14 @@
             gap: 8px;
             transition: background 0.3s ease, backdrop-filter 0.3s ease;
         }
+
         nav.scrolled {
             background: rgba(10, 10, 15, 0.8);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
             border-bottom: 1px solid var(--border-card);
         }
+
         .nav-link {
             color: var(--text-sub);
             text-decoration: none;
@@ -83,6 +92,7 @@
             transition: all 0.3s ease;
             letter-spacing: 0.02em;
         }
+
         .nav-link:hover {
             color: var(--text-main);
             background: rgba(255, 255, 255, 0.06);
@@ -105,6 +115,7 @@
             position: relative;
             padding: 120px 24px 80px;
         }
+
         .hero::before {
             content: '';
             position: absolute;
@@ -116,6 +127,7 @@
             background: radial-gradient(circle, rgba(99, 102, 241, 0.15) 0%, transparent 70%);
             pointer-events: none;
         }
+
         .hero::after {
             content: '';
             position: absolute;
@@ -145,6 +157,7 @@
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
         }
+
         .date-badge::before {
             content: '';
             width: 6px;
@@ -153,9 +166,17 @@
             background: var(--success);
             animation: pulse-dot 2s ease-in-out infinite;
         }
+
         @keyframes pulse-dot {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.3; }
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.3;
+            }
         }
 
         h1 {
@@ -165,7 +186,7 @@
             letter-spacing: -0.04em;
             line-height: 1.15;
             margin-bottom: 20px;
-            background: linear-gradient(135deg, #fff 0%, rgba(255,255,255,0.7) 100%);
+            background: linear-gradient(135deg, #fff 0%, rgba(255, 255, 255, 0.7) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -194,9 +215,17 @@
             letter-spacing: 0.1em;
             animation: float 3s ease-in-out infinite;
         }
+
         @keyframes float {
-            0%, 100% { transform: translateX(-50%) translateY(0); }
-            50% { transform: translateX(-50%) translateY(8px); }
+
+            0%,
+            100% {
+                transform: translateX(-50%) translateY(0);
+            }
+
+            50% {
+                transform: translateX(-50%) translateY(8px);
+            }
         }
 
         /* ===== SCRIPTURE CARD ===== */
@@ -212,6 +241,7 @@
             overflow: hidden;
             box-shadow: var(--glow-primary);
         }
+
         .scripture-card::before {
             content: '';
             position: absolute;
@@ -221,6 +251,7 @@
             height: 1px;
             background: linear-gradient(90deg, transparent, var(--primary-light), transparent);
         }
+
         .scripture-text {
             font-size: 1.15rem;
             font-weight: 500;
@@ -231,6 +262,7 @@
             line-height: 1.9;
             color: rgba(255, 255, 255, 0.85);
         }
+
         .scripture-ref {
             text-align: right;
             font-family: var(--font-heading);
@@ -238,6 +270,7 @@
             color: var(--primary-light);
             font-size: 0.9rem;
         }
+
         .scripture-card::after {
             content: '\201C';
             position: absolute;
@@ -264,6 +297,7 @@
             gap: 14px;
             letter-spacing: -0.02em;
         }
+
         .section-title .title-accent {
             display: inline-block;
             width: 4px;
@@ -290,6 +324,7 @@
             position: relative;
             overflow: hidden;
         }
+
         .card::before {
             content: '';
             position: absolute;
@@ -300,12 +335,14 @@
             background: linear-gradient(90deg, transparent, var(--border-card), transparent);
             transition: background 0.4s ease;
         }
+
         .card:hover {
             transform: translateY(-4px);
             background: var(--bg-card-hover);
             border-color: rgba(255, 255, 255, 0.12);
             box-shadow: var(--glow-primary);
         }
+
         .card:hover::before {
             background: linear-gradient(90deg, transparent, var(--primary-light), transparent);
         }
@@ -322,16 +359,19 @@
             border: 1px solid rgba(99, 102, 241, 0.15);
             color: var(--primary-light);
         }
+
         .card-icon.accent {
             background: rgba(244, 114, 182, 0.1);
             border-color: rgba(244, 114, 182, 0.15);
             color: var(--accent);
         }
+
         .card-icon.orange {
             background: rgba(251, 146, 60, 0.1);
             border-color: rgba(251, 146, 60, 0.15);
             color: var(--accent-alt);
         }
+
         .card-icon.green {
             background: rgba(52, 211, 153, 0.1);
             border-color: rgba(52, 211, 153, 0.15);
@@ -345,6 +385,7 @@
             margin-bottom: 12px;
             letter-spacing: -0.01em;
         }
+
         .card p {
             color: var(--text-sub);
             font-size: 0.92rem;
@@ -356,6 +397,7 @@
             list-style: none;
             margin-top: 20px;
         }
+
         .target-list li {
             padding: 10px 0;
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
@@ -365,9 +407,11 @@
             font-size: 0.92rem;
             color: rgba(255, 255, 255, 0.75);
         }
+
         .target-list li:last-child {
             border-bottom: none;
         }
+
         .check-icon {
             color: var(--success);
             width: 18px;
@@ -382,6 +426,7 @@
             flex-direction: column;
             gap: 0;
         }
+
         .process-step {
             display: flex;
             align-items: flex-start;
@@ -389,6 +434,7 @@
             padding: 12px 0;
             position: relative;
         }
+
         .step-number {
             width: 28px;
             height: 28px;
@@ -406,6 +452,7 @@
             position: relative;
             z-index: 1;
         }
+
         .process-step:not(:last-child)::before {
             content: '';
             position: absolute;
@@ -415,6 +462,7 @@
             width: 1px;
             background: linear-gradient(180deg, rgba(99, 102, 241, 0.3), transparent);
         }
+
         .step-content {
             font-size: 0.88rem;
             color: rgba(255, 255, 255, 0.7);
@@ -432,6 +480,7 @@
             position: relative;
             overflow: hidden;
         }
+
         .protocol-box::before {
             content: '';
             position: absolute;
@@ -441,6 +490,7 @@
             height: 1px;
             background: linear-gradient(90deg, var(--primary), var(--accent), transparent);
         }
+
         .protocol-box h2 {
             font-family: var(--font-heading);
             font-size: 1.15rem;
@@ -458,7 +508,11 @@
             margin: 32px 0;
             flex-wrap: wrap;
         }
-        .protocol-item { text-align: center; }
+
+        .protocol-item {
+            text-align: center;
+        }
+
         .protocol-value {
             font-family: var(--font-heading);
             font-size: 3rem;
@@ -466,6 +520,7 @@
             display: block;
             letter-spacing: -0.03em;
         }
+
         .protocol-label {
             font-family: var(--font-heading);
             font-size: 0.75rem;
@@ -473,23 +528,28 @@
             text-transform: uppercase;
             opacity: 0.5;
         }
+
         .deprecated {
             opacity: 0.25;
         }
+
         .deprecated .protocol-value {
             text-decoration: line-through;
             text-decoration-color: var(--accent);
         }
+
         .new-version .protocol-value {
             background: linear-gradient(135deg, var(--success), #6EE7B7);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
+
         .arrow-icon {
             color: var(--accent);
             opacity: 0.6;
         }
+
         .protocol-note {
             font-size: 0.85rem;
             color: var(--text-sub);
@@ -504,6 +564,7 @@
             gap: 10px;
             margin-top: 20px;
         }
+
         .tag {
             background: rgba(255, 255, 255, 0.05);
             border: 1px solid rgba(255, 255, 255, 0.08);
@@ -514,6 +575,7 @@
             font-weight: 500;
             transition: all 0.3s ease;
         }
+
         .tag:hover {
             background: rgba(99, 102, 241, 0.1);
             border-color: rgba(99, 102, 241, 0.2);
@@ -524,12 +586,14 @@
         .conversation-ui {
             margin-top: 20px;
         }
+
         .chat-container {
             background: rgba(0, 0, 0, 0.2);
             border-radius: var(--radius-md);
             padding: 24px;
             border: 1px solid rgba(255, 255, 255, 0.04);
         }
+
         .chat-bubble {
             padding: 16px 20px;
             border-radius: 18px;
@@ -539,12 +603,14 @@
             line-height: 1.6;
             position: relative;
         }
+
         .chat-bubble.bad {
             background: rgba(255, 255, 255, 0.04);
             border: 1px solid rgba(255, 59, 48, 0.15);
             border-bottom-left-radius: 4px;
             color: rgba(255, 255, 255, 0.5);
         }
+
         .chat-bubble.good {
             background: linear-gradient(135deg, rgba(99, 102, 241, 0.12), rgba(52, 211, 153, 0.08));
             border: 1px solid rgba(99, 102, 241, 0.2);
@@ -552,6 +618,7 @@
             margin-left: auto;
             color: rgba(255, 255, 255, 0.85);
         }
+
         .chat-label {
             font-family: var(--font-heading);
             font-size: 0.68rem;
@@ -564,13 +631,20 @@
             letter-spacing: 0.08em;
             font-weight: 600;
         }
+
         .chat-label .dot {
             width: 6px;
             height: 6px;
             border-radius: 50%;
         }
-        .chat-label .dot.red { background: #FF3B30; }
-        .chat-label .dot.green { background: var(--success); }
+
+        .chat-label .dot.red {
+            background: #FF3B30;
+        }
+
+        .chat-label .dot.green {
+            background: var(--success);
+        }
 
         /* ===== FOOTER ===== */
         footer {
@@ -579,17 +653,20 @@
             padding: 60px 24px 40px;
             border-top: 1px solid var(--border-card);
         }
+
         footer p {
             color: var(--text-sub);
             font-size: 0.92rem;
             line-height: 1.8;
         }
+
         .footer-verse {
             color: var(--primary-light);
             font-weight: 700;
             font-size: 0.85rem;
             margin-top: 8px;
         }
+
         .footer-credit {
             margin-top: 40px;
             font-family: var(--font-heading);
@@ -603,22 +680,41 @@
             opacity: 0;
             transform: translateY(30px);
             transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-                        transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+                transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
+
         .fade-in.visible {
             opacity: 1;
             transform: translateY(0);
         }
-        .fade-in-delay-1 { transition-delay: 0.1s; }
-        .fade-in-delay-2 { transition-delay: 0.2s; }
-        .fade-in-delay-3 { transition-delay: 0.3s; }
+
+        .fade-in-delay-1 {
+            transition-delay: 0.1s;
+        }
+
+        .fade-in-delay-2 {
+            transition-delay: 0.2s;
+        }
+
+        .fade-in-delay-3 {
+            transition-delay: 0.3s;
+        }
 
         /* ===== COUNTER ANIMATION ===== */
         @keyframes count-pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+
+            100% {
+                transform: scale(1);
+            }
         }
+
         .protocol-value.animate {
             animation: count-pulse 0.6s ease-out;
         }
@@ -629,234 +725,260 @@
                 min-height: 80vh;
                 padding: 100px 20px 60px;
             }
-            h1 { font-size: 2rem; }
+
+            h1 {
+                font-size: 2rem;
+            }
+
             .bento-grid {
                 grid-template-columns: 1fr;
             }
+
             .protocol-comparison {
                 flex-direction: column;
                 gap: 24px;
             }
-            .arrow-icon { transform: rotate(90deg); }
-            .scripture-card, .card, .protocol-box {
+
+            .arrow-icon {
+                transform: rotate(90deg);
+            }
+
+            .scripture-card,
+            .card,
+            .protocol-box {
                 padding: 24px;
             }
+
             nav {
                 gap: 4px;
                 padding: 12px 16px;
             }
+
             .nav-link {
                 font-size: 0.72rem;
                 padding: 6px 10px;
             }
-            .chat-bubble { max-width: 92%; }
+
+            .chat-bubble {
+                max-width: 92%;
+            }
         }
 
         @media (max-width: 480px) {
-            .container { padding: 0 16px; }
-            .strategy-section { margin-bottom: 60px; }
-            .section-title { font-size: 1.3rem; }
+            .container {
+                padding: 0 16px;
+            }
+
+            .strategy-section {
+                margin-bottom: 60px;
+            }
+
+            .section-title {
+                font-size: 1.3rem;
+            }
         }
     </style>
 </head>
+
 <body>
 
-<!-- NAVIGATION -->
-<nav id="navbar">
-    <a href="#strategy" class="nav-link">Strategy</a>
-    <a href="#protocol" class="nav-link">Protocol</a>
-    <a href="#analysis" class="nav-link">Analysis</a>
-</nav>
+    <!-- NAVIGATION -->
+    <nav id="navbar">
+        <a href="#strategy" class="nav-link">Strategy</a>
+        <a href="#protocol" class="nav-link">Protocol</a>
+        <a href="#analysis" class="nav-link">Analysis</a>
+    </nav>
 
-<!-- HERO -->
-<section class="hero" id="top">
-    <span class="date-badge">2025.12.27 UPDATE</span>
-    <h1>今後の奉仕の戦略について</h1>
-    <p class="subtitle">富士見会衆 野外奉仕最適化プロジェクト</p>
-    <div class="scroll-indicator">
-        <i data-lucide="chevrons-down" style="width:16px;height:16px;"></i>
-        SCROLL
-    </div>
-</section>
-
-<div class="container">
-
-    <!-- KEY PRINCIPLE -->
-    <div class="scripture-card fade-in">
-        <p class="scripture-text">
-            「それで私は，どこに向かっているか分からないような走り方をしてはいません。空振りになるようなこぶしの振るい方もしてはいません。」
-        </p>
-        <p class="scripture-ref">― コリント第一 9:26</p>
-    </div>
-
-    <!-- MAIN STRATEGY -->
-    <section class="strategy-section" id="strategy">
-        <h2 class="section-title fade-in">
-            <span class="title-accent"></span>
-            Core Strategy: 的を絞る
-        </h2>
-        <div class="bento-grid">
-            <!-- Card 1: The Target -->
-            <div class="card fade-in fade-in-delay-1">
-                <div class="card-icon">
-                    <i data-lucide="crosshair" style="width:22px;height:22px;"></i>
-                </div>
-                <h3>新築の一軒家へフォーカス</h3>
-                <p>リソース（時間・人員）は有限です。空振りを減らし、最も必要としている層へアプローチしましょう。</p>
-                <ul class="target-list">
-                    <li>
-                        <i data-lucide="check" class="check-icon"></i>
-                        若い世代・子育て世代
-                    </li>
-                    <li>
-                        <i data-lucide="check" class="check-icon"></i>
-                        まだ訪問を受けたことのない人
-                    </li>
-                    <li>
-                        <i data-lucide="check" class="check-icon"></i>
-                        社会の最前線で働く人
-                    </li>
-                </ul>
-            </div>
-
-            <!-- Card 2: The Method -->
-            <div class="card fade-in fade-in-delay-2">
-                <div class="card-icon accent">
-                    <i data-lucide="map" style="width:22px;height:22px;"></i>
-                </div>
-                <h3>区域運用のアルゴリズム変更</h3>
-                <p>全ての家を回るのではなく、ターゲットとなる家を優先的にピックアップし、そこを確実に訪問します。</p>
-                <div class="process-flow">
-                    <div class="process-step">
-                        <span class="step-number">1</span>
-                        <span class="step-content">区域受け取り</span>
-                    </div>
-                    <div class="process-step">
-                        <span class="step-number">2</span>
-                        <span class="step-content">サーベイ（新しめの家を特定）</span>
-                    </div>
-                    <div class="process-step">
-                        <span class="step-number">3</span>
-                        <span class="step-content">ターゲットのみ優先訪問</span>
-                    </div>
-                    <div class="process-step">
-                        <span class="step-number">4</span>
-                        <span class="step-content">完了（返却）</span>
-                    </div>
-                </div>
-            </div>
+    <!-- HERO -->
+    <section class="hero" id="top">
+        <span class="date-badge">2025.12.27 UPDATE</span>
+        <h1>今後の奉仕戦略について</h1>
+        <p class="subtitle">富士見会衆 野外奉仕最適化プロジェクト</p>
+        <div class="scroll-indicator">
+            <i data-lucide="chevrons-down" style="width:16px;height:16px;"></i>
+            SCROLL
         </div>
     </section>
 
-    <!-- RULE UPDATE -->
-    <section class="strategy-section" id="protocol">
-        <div class="protocol-box fade-in">
-            <h2>地図使用期間の変更</h2>
-            <div class="protocol-comparison">
-                <div class="protocol-item deprecated">
-                    <span class="protocol-label">Legacy</span>
-                    <span class="protocol-value" data-count-from="4">4 Months</span>
-                </div>
-                <div class="arrow-icon">
-                    <i data-lucide="arrow-right" style="width:28px;height:28px;"></i>
-                </div>
-                <div class="protocol-item new-version">
-                    <span class="protocol-label">New Standard</span>
-                    <span class="protocol-value" data-count-to="2">2 Months</span>
-                </div>
-            </div>
-            <p class="protocol-note">
-                ※サイクルを早め、情報を新鮮に保ちます。<br>
-                ※週末や晩の奉仕が難しい場合は、早めにグループ監督や仲間に相談し、地図を託してください（タスク委任）。
+    <div class="container">
+
+        <!-- KEY PRINCIPLE -->
+        <div class="scripture-card fade-in">
+            <p class="scripture-text">
+                「それで私は，どこに向かっているか分からないような走り方をしてはいません。空振りになるようなこぶしの振るい方もしてはいません。」
             </p>
+            <p class="scripture-ref">― コリント第一 9:26</p>
         </div>
-    </section>
 
-    <!-- PERSONA & UX -->
-    <section class="strategy-section" id="analysis">
-        <h2 class="section-title fade-in">
-            <span class="title-accent"></span>
-            User Analysis: 若い世代
-        </h2>
-        <div class="bento-grid">
-            <!-- Persona Traits -->
-            <div class="card fade-in fade-in-delay-1">
-                <div class="card-icon orange">
-                    <i data-lucide="bar-chart-3" style="width:22px;height:22px;"></i>
+        <!-- MAIN STRATEGY -->
+        <section class="strategy-section" id="strategy">
+            <h2 class="section-title fade-in">
+                <span class="title-accent"></span>
+                Core Strategy: 的を絞る
+            </h2>
+            <div class="bento-grid">
+                <!-- Card 1: The Target -->
+                <div class="card fade-in fade-in-delay-1">
+                    <div class="card-icon">
+                        <i data-lucide="crosshair" style="width:22px;height:22px;"></i>
+                    </div>
+                    <h3>新築の一軒家へフォーカス</h3>
+                    <p>リソース（時間・人員）は有限です。空振りを減らし、最も必要としている層へアプローチしましょう。</p>
+                    <ul class="target-list">
+                        <li>
+                            <i data-lucide="check" class="check-icon"></i>
+                            若い世代・子育て世代
+                        </li>
+                        <li>
+                            <i data-lucide="check" class="check-icon"></i>
+                            まだ訪問を受けたことのない人
+                        </li>
+                        <li>
+                            <i data-lucide="check" class="check-icon"></i>
+                            社会の最前線で働く人
+                        </li>
+                    </ul>
                 </div>
-                <h3>ユーザー傾向（プロファイル）</h3>
-                <p>現代の若い世代の思考パターンを理解し、UX（証言体験）を最適化します。</p>
-                <div class="persona-tags">
-                    <span class="tag">仕事より家族・自分</span>
-                    <span class="tag">リスク回避思考</span>
-                    <span class="tag">夫婦で家事育児</span>
-                    <span class="tag">検索リテラシー高</span>
-                    <span class="tag">「正解がない」世界観</span>
-                </div>
-            </div>
 
-            <!-- Conversation UX -->
-            <div class="card fade-in fade-in-delay-2">
-                <div class="card-icon green">
-                    <i data-lucide="message-circle" style="width:22px;height:22px;"></i>
-                </div>
-                <h3>会話のUXデザイン</h3>
-                <p>「警戒心」と「押し付け感」というバグを取り除きます。</p>
-
-                <div class="conversation-ui">
-                    <div class="chat-container">
-                        <div class="chat-bubble bad">
-                            <span class="chat-label"><span class="dot red"></span> Bad Pattern</span>
-                            いきなり宗教の話や、長時間の拘束、結論の見えない話。「売り込み」と感じさせてしまう。
+                <!-- Card 2: The Method -->
+                <div class="card fade-in fade-in-delay-2">
+                    <div class="card-icon accent">
+                        <i data-lucide="map" style="width:22px;height:22px;"></i>
+                    </div>
+                    <h3>区域運用のアルゴリズム変更</h3>
+                    <p>全ての家を回るのではなく、ターゲットとなる家を優先的にピックアップし、そこを確実に訪問します。</p>
+                    <div class="process-flow">
+                        <div class="process-step">
+                            <span class="step-number">1</span>
+                            <span class="step-content">区域受け取り</span>
                         </div>
-                        <div class="chat-bubble good">
-                            <span class="chat-label"><span class="dot green"></span> Optimized</span>
-                            「1分だけご挨拶です」「興味がなければすぐに失礼します」<br>
-                            <strong>選択権（Exitボタン）を相手に渡すことで、心理的ハードルを下げる。</strong>
+                        <div class="process-step">
+                            <span class="step-number">2</span>
+                            <span class="step-content">サーベイ（新しめの家を特定）</span>
+                        </div>
+                        <div class="process-step">
+                            <span class="step-number">3</span>
+                            <span class="step-content">ターゲットのみ優先訪問</span>
+                        </div>
+                        <div class="process-step">
+                            <span class="step-number">4</span>
+                            <span class="step-content">完了（返却）</span>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <footer class="fade-in">
-        <p>私たちが「同じ思い，同じ考え方でしっかりと団結して」奉仕する時，エホバの豊かな祝福が注がれます。</p>
-        <p class="footer-verse">（コリント第一 1:10）</p>
-        <p class="footer-credit">Generated for Bro.Hide | HTML5 & CSS3 Optimized</p>
-    </footer>
+        <!-- RULE UPDATE -->
+        <section class="strategy-section" id="protocol">
+            <div class="protocol-box fade-in">
+                <h2>地図使用期間の変更</h2>
+                <div class="protocol-comparison">
+                    <div class="protocol-item deprecated">
+                        <span class="protocol-label">Legacy</span>
+                        <span class="protocol-value" data-count-from="4">4 Months</span>
+                    </div>
+                    <div class="arrow-icon">
+                        <i data-lucide="arrow-right" style="width:28px;height:28px;"></i>
+                    </div>
+                    <div class="protocol-item new-version">
+                        <span class="protocol-label">New Standard</span>
+                        <span class="protocol-value" data-count-to="2">2 Months</span>
+                    </div>
+                </div>
+                <p class="protocol-note">
+                    ※サイクルを早め、情報を新鮮に保ちます。<br>
+                    ※週末や晩の奉仕が難しい場合は、早めにグループ監督や仲間に相談し、地図を託してください（タスク委任）。
+                </p>
+            </div>
+        </section>
 
-</div>
+        <!-- PERSONA & UX -->
+        <section class="strategy-section" id="analysis">
+            <h2 class="section-title fade-in">
+                <span class="title-accent"></span>
+                User Analysis: 若い世代
+            </h2>
+            <div class="bento-grid">
+                <!-- Persona Traits -->
+                <div class="card fade-in fade-in-delay-1">
+                    <div class="card-icon orange">
+                        <i data-lucide="bar-chart-3" style="width:22px;height:22px;"></i>
+                    </div>
+                    <h3>ユーザー傾向（プロファイル）</h3>
+                    <p>現代の若い世代の思考パターンを理解し、UX（証言体験）を最適化します。</p>
+                    <div class="persona-tags">
+                        <span class="tag">仕事より家族・自分</span>
+                        <span class="tag">リスク回避思考</span>
+                        <span class="tag">夫婦で家事育児</span>
+                        <span class="tag">検索リテラシー高</span>
+                        <span class="tag">「正解がない」世界観</span>
+                    </div>
+                </div>
 
-<script>
-    // Initialize Lucide icons
-    lucide.createIcons();
+                <!-- Conversation UX -->
+                <div class="card fade-in fade-in-delay-2">
+                    <div class="card-icon green">
+                        <i data-lucide="message-circle" style="width:22px;height:22px;"></i>
+                    </div>
+                    <h3>会話のUXデザイン</h3>
+                    <p>「警戒心」と「押し付け感」というバグを取り除きます。</p>
 
-    // Scroll-triggered animations (Intersection Observer)
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-                observer.unobserve(entry.target);
-            }
+                    <div class="conversation-ui">
+                        <div class="chat-container">
+                            <div class="chat-bubble bad">
+                                <span class="chat-label"><span class="dot red"></span> Bad Pattern</span>
+                                いきなり宗教の話や、長時間の拘束、結論の見えない話。「売り込み」と感じさせてしまう。
+                            </div>
+                            <div class="chat-bubble good">
+                                <span class="chat-label"><span class="dot green"></span> Optimized</span>
+                                「1分だけご挨拶です」「興味がなければすぐに失礼します」<br>
+                                <strong>選択権（Exitボタン）を相手に渡すことで、心理的ハードルを下げる。</strong>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer class="fade-in">
+            <p>私たちが「同じ思い，同じ考え方でしっかりと団結して」奉仕する時，エホバの豊かな祝福が注がれます。</p>
+            <p class="footer-verse">（コリント第一 1:10）</p>
+            <p class="footer-credit">Generated for Bro.Hide | HTML5 & CSS3 Optimized</p>
+        </footer>
+
+    </div>
+
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // Scroll-triggered animations (Intersection Observer)
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
         });
-    }, {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    });
 
-    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
-    // Navbar scroll effect
-    const navbar = document.getElementById('navbar');
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 100) {
-            navbar.classList.add('scrolled');
-        } else {
-            navbar.classList.remove('scrolled');
-        }
-    }, { passive: true });
-</script>
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        }, { passive: true });
+    </script>
 
 </body>
+
 </html>
