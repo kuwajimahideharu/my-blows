@@ -836,6 +836,51 @@
                 font-size: 1.5rem;
                 color: var(--text-main);
             }
+
+            /* Back to Top Button */
+            .back-to-top {
+                position: fixed;
+                bottom: 24px;
+                right: 24px;
+                width: 48px;
+                height: 48px;
+                background: rgba(99, 102, 241, 0.9);
+                color: white;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+                z-index: 90;
+                opacity: 0;
+                visibility: hidden;
+                transition: all 0.3s ease;
+                cursor: pointer;
+                text-decoration: none;
+                border: 1px solid rgba(255, 255, 255, 0.2);
+            }
+
+            .back-to-top.visible {
+                opacity: 1;
+                visibility: visible;
+                transform: translateY(0);
+            }
+
+            .back-to-top:hover {
+                background: var(--primary);
+                transform: translateY(-2px);
+            }
+
+            .back-to-top:active {
+                transform: scale(0.95);
+            }
+        }
+
+        /* Desktop: Hide Back to Top */
+        @media (min-width: 769px) {
+            .back-to-top {
+                display: none;
+            }
         }
 
         @media (max-width: 480px) {
@@ -1039,6 +1084,11 @@
         <p class="footer-credit">DESIGNED FOR THEOCRATIC STRATEGY</p>
     </footer>
 
+    <!-- Back to Top Button -->
+    <a href="#top" class="back-to-top" id="backToTop" aria-label="Back to Top">
+        <i data-lucide="arrow-up" style="width:24px;height:24px;"></i>
+    </a>
+
     <script>
         // Initialize Lucide icons
         lucide.createIcons();
@@ -1095,6 +1145,25 @@
 
         document.querySelectorAll('.fade-in').forEach(el => {
             fadeObserver.observe(el);
+        });
+
+        // Back to Top Button Logic
+        const backToTopButton = document.getElementById('backToTop');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTopButton.classList.add('visible');
+            } else {
+                backToTopButton.classList.remove('visible');
+            }
+        });
+
+        backToTopButton.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
         });
     </script>
 </body>
