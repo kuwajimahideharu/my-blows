@@ -84,6 +84,11 @@
             border-bottom: 1px solid var(--border-card);
         }
 
+        .hamburger,
+        .mobile-menu {
+            display: none;
+        }
+
         .nav-link {
             color: var(--text-sub);
             text-decoration: none;
@@ -723,6 +728,7 @@
         }
 
         /* ===== RESPONSIVE ===== */
+        /* ===== RESPONSIVE ===== */
         @media (max-width: 768px) {
             .hero {
                 min-height: 80vh;
@@ -752,18 +758,83 @@
                 padding: 24px;
             }
 
+            /* Mobile Navigation */
             nav {
-                gap: 4px;
-                padding: 12px 16px;
+                justify-content: space-between;
+                align-items: center;
+                padding: 16px 20px;
             }
 
-            .nav-link {
-                font-size: 0.72rem;
-                padding: 6px 10px;
+            nav .nav-link {
+                display: none;
+                /* Hide desktop links */
             }
 
-            .chat-bubble {
-                max-width: 92%;
+            .hamburger {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-around;
+                width: 24px;
+                height: 24px;
+                background: transparent;
+                border: none;
+                cursor: pointer;
+                padding: 0;
+                z-index: 200;
+            }
+
+            .hamburger span {
+                width: 24px;
+                height: 2px;
+                background: var(--text-main);
+                border-radius: 2px;
+                transition: all 0.3s linear;
+                position: relative;
+                transform-origin: 1px;
+            }
+
+            /* Hamburger Animation */
+            .hamburger.active span:first-child {
+                transform: rotate(45deg);
+            }
+
+            .hamburger.active span:nth-child(2) {
+                opacity: 0;
+                transform: translateX(20px);
+            }
+
+            .hamburger.active span:nth-child(3) {
+                transform: rotate(-45deg);
+            }
+
+            /* Mobile Menu Overlay */
+            .mobile-menu {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100vh;
+                background: rgba(10, 10, 15, 0.95);
+                backdrop-filter: blur(20px);
+                -webkit-backdrop-filter: blur(20px);
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 32px;
+                z-index: 150;
+                transform: translateX(100%);
+                transition: transform 0.3s ease-in-out;
+            }
+
+            .mobile-menu.active {
+                transform: translateX(0);
+            }
+
+            .mobile-menu .nav-link {
+                display: block;
+                font-size: 1.5rem;
+                color: var(--text-main);
             }
         }
 
@@ -787,9 +858,24 @@
 
     <!-- NAVIGATION -->
     <nav id="navbar">
+        <!-- Desktop Links -->
         <a href="#strategy" class="nav-link">Strategy</a>
         <a href="#protocol" class="nav-link">Protocol</a>
         <a href="#analysis" class="nav-link">Analysis</a>
+
+        <!-- Mobile Hamburger Button -->
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <!-- Mobile Menu Overlay -->
+        <div class="mobile-menu" id="mobile-menu">
+            <a href="#strategy" class="nav-link" onclick="toggleMenu()">Strategy</a>
+            <a href="#protocol" class="nav-link" onclick="toggleMenu()">Protocol</a>
+            <a href="#analysis" class="nav-link" onclick="toggleMenu()">Analysis</a>
+        </div>
     </nav>
 
     <!-- HERO -->
@@ -944,44 +1030,73 @@
             </div>
         </section>
 
-        <footer class="fade-in">
-            <p>私たちが「同じ思い，同じ考え方でしっかりと団結して」奉仕する時，エホバの豊かな祝福が注がれます。</p>
-            <p class="footer-verse">（コリント第一 1:10）</p>
-            <p class="footer-credit">Generated for Bro.Hide | HTML5 & CSS3 Optimized</p>
-        </footer>
-
     </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>Fujimi Congregation &copy; 2025</p>
+        <p class="footer-verse">"Let all things take place decently and by arrangement." - 1 Cor 14:40</p>
+        <p class="footer-credit">DESIGNED FOR THEOCRATIC STRATEGY</p>
+    </footer>
 
     <script>
         // Initialize Lucide icons
         lucide.createIcons();
 
-        // Scroll-triggered animations (Intersection Observer)
+        // Navbar Scroll Effect
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile Menu Toggle
+        const hamburger = document.getElementById('hamburger');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+        });
+
+        function toggleMenu() {
+            hamburger.classList.remove('active');
+            mobileMenu.classList.remove('active');
+        }
+
+        // Animated Counter
+        const observerOptions = {
+            threshold: 0.5
+        };
+
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                    observer.unobserve(entry.target);
+                    entry.target.classList.add('animate');
                 }
             });
-        }, {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
+        }, observerOptions);
+
+        document.querySelectorAll('.protocol-value').forEach(el => {
+            observer.observe(el);
         });
 
-        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+        // Fade In Animation
+        const fadeObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
 
-        // Navbar scroll effect
-        const navbar = document.getElementById('navbar');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 100) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
-        }, { passive: true });
+        document.querySelectorAll('.fade-in').forEach(el => {
+            fadeObserver.observe(el);
+        });
     </script>
-
 </body>
 
 </html>
