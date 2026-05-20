@@ -22,25 +22,25 @@
 
     <style>
         :root {
-            --primary: #0284C7;
-            --primary-light: #0EA5E9;
+            --primary: #0EA5E9;
+            --primary-light: #38BDF8;
             --accent: #06B6D4;
-            --accent-alt: #10B981;
-            --bg-body: #F3F4F6;
-            --bg-card: rgba(255, 255, 255, 0.75);
-            --bg-card-hover: rgba(255, 255, 255, 0.97);
-            --border-card: rgba(14, 165, 233, 0.1);
-            --text-main: #0C1A2E;
-            --text-sub: #4A6585;
-            --success: #10B981;
+            --accent-alt: #34D399;
+            --bg-body: #0F172A;
+            --bg-card: rgba(30, 41, 59, 0.7);
+            --bg-card-hover: rgba(30, 41, 59, 0.9);
+            --border-card: rgba(56, 189, 248, 0.15);
+            --text-main: #F8FAFC;
+            --text-sub: #94A3B8;
+            --success: #34D399;
             --radius-lg: 24px;
             --radius-md: 16px;
             --radius-sm: 12px;
-            --shadow: 0 8px 32px rgba(14, 165, 233, 0.08);
+            --shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
             --font-heading: 'Inter', 'Noto Sans JP', sans-serif;
             --font-body: 'Noto Sans JP', 'Inter', sans-serif;
-            --glow-primary: 0 0 60px rgba(14, 165, 233, 0.18);
-            --glow-accent: 0 0 60px rgba(6, 182, 212, 0.12);
+            --glow-primary: 0 0 60px rgba(14, 165, 233, 0.12);
+            --glow-accent: 0 0 60px rgba(6, 182, 212, 0.06);
         }
 
         * {
@@ -78,7 +78,7 @@
         }
 
         nav.scrolled {
-            background: rgba(248, 250, 252, 0.85);
+            background: rgba(15, 23, 42, 0.85);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
             border-bottom: 1px solid var(--border-card);
@@ -103,7 +103,7 @@
 
         .nav-link:hover {
             color: var(--text-main);
-            background: rgba(0, 0, 0, 0.05);
+            background: rgba(255, 255, 255, 0.08);
         }
 
         .container {
@@ -152,7 +152,7 @@
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            background: rgba(255, 255, 255, 0.6);
+            background: rgba(30, 41, 59, 0.6);
             border: 1px solid var(--border-card);
             color: var(--text-sub);
             padding: 6px 18px;
@@ -194,7 +194,7 @@
             letter-spacing: -0.04em;
             line-height: 1.15;
             margin-bottom: 20px;
-            background: linear-gradient(135deg, #0C1A2E 0%, #0284C7 100%);
+            background: linear-gradient(135deg, #FFFFFF 0%, #38BDF8 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -268,7 +268,7 @@
             position: relative;
             z-index: 1;
             line-height: 1.9;
-            color: rgba(15, 23, 42, 0.85);
+            color: rgba(248, 250, 252, 0.95);
         }
 
         .scripture-ref {
@@ -408,12 +408,12 @@
 
         .target-list li {
             padding: 10px 0;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
             display: flex;
             align-items: center;
             gap: 12px;
             font-size: 0.92rem;
-            color: rgba(15, 23, 42, 0.8);
+            color: var(--text-sub);
         }
 
         .target-list li:last-child {
@@ -503,7 +503,7 @@
             font-family: var(--font-heading);
             font-size: 1.15rem;
             font-weight: 700;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
             padding-bottom: 16px;
             margin-bottom: 8px;
         }
@@ -574,8 +574,8 @@
         }
 
         .tag {
-            background: rgba(0, 0, 0, 0.04);
-            border: 1px solid rgba(0, 0, 0, 0.08);
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.08);
             color: var(--text-sub);
             padding: 6px 16px;
             border-radius: 20px;
@@ -596,10 +596,10 @@
         }
 
         .chat-container {
-            background: rgba(0, 0, 0, 0.02);
+            background: rgba(255, 255, 255, 0.02);
             border-radius: var(--radius-md);
             padding: 24px;
-            border: 1px solid rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.05);
         }
 
         .chat-bubble {
@@ -613,8 +613,8 @@
         }
 
         .chat-bubble.bad {
-            background: rgba(0, 0, 0, 0.03);
-            border: 1px solid rgba(255, 59, 48, 0.15);
+            background: rgba(239, 68, 68, 0.08);
+            border: 1px solid rgba(239, 68, 68, 0.25);
             border-bottom-left-radius: 4px;
             color: var(--text-sub);
         }
@@ -679,7 +679,7 @@
             margin-top: 40px;
             font-family: var(--font-heading);
             font-size: 0.72rem;
-            color: rgba(0, 0, 0, 0.25);
+            color: rgba(255, 255, 255, 0.25);
             letter-spacing: 0.05em;
         }
 
@@ -814,7 +814,7 @@
                 left: 0;
                 width: 100%;
                 height: 100vh;
-                background: rgba(248, 250, 252, 0.95);
+                background: rgba(15, 23, 42, 0.95);
                 backdrop-filter: blur(20px);
                 -webkit-backdrop-filter: blur(20px);
                 display: flex;
@@ -925,7 +925,7 @@
 
     <!-- HERO -->
     <section class="hero" id="top">
-        <span class="date-badge">2026.05.18 UPDATE</span>
+        <span class="date-badge">2026.05.21 UPDATE</span>
         <h1>今後の奉仕戦略について</h1>
         <p class="subtitle">富士見会衆 野外奉仕最適化プロジェクト</p>
         <div class="scroll-indicator">
